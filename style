@@ -1,24 +1,4 @@
-#banner {
-    width: 100%;
-}
-
-.principal{
-    background: #CCCCCC
-    padding 30px;
-}
-
-.titulo-principal {
-    padding-left: 20px;
-}
-
-.titulo-centralizado {
-    text-align: center
-}
-
-p {
+P {
     text-align: center;
-}
-
-#missão {
-    font-size: 20px
+    background: #CCCCCC
 }
