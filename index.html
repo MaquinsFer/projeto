@@ -1,47 +1,155 @@
-<html>
-    <head>
-        <tittle>Style Store</tittle>
-        <meta charset="utf-8"/>
-    <head>
+html>
+  <head>
+    <tittle>Style Store</tittle>
+    <meta charset="utf-8" />
+    <lin href="https://fonts.googleapis.com/css2?family=Lato8display=swap" rell="stylesheet">
+    <style>
+
+      *{
+        font-family: 'Lato', sans-serif;
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+      }
+
+      #produtos{
+        max-width: 900px;
+        margin: auto;
+        padding:0 2%;
+        display: flex;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        border: 10px black;
+      
+      }
+      #carrinho{
+        max-width: 900px;
+        margin:0 auto;
+        padding:0 2%;
+        display: block;
+      }
+      .produto-single{
+        width: 32%;
+        margin-right: 1%;
+        border: 1px solid  #ccc;
+      }
     
-    <body>
-         <div id="produtos">
+  
+      h2{
+        background-color: #FFEB00;
+        padding: 10px 0;
+        text-align: center;
+        color:black;
 
-            </div><!--produtos-->
+      }
 
-         <div id="carrinho">
 
-         </div><!--carrinho-->
+    </style>
 
-         <script>
-            const items = [
-              { 
-                id: 0, 
-                nome:'camiseta',
-                img :'image.jpg',
-                quantidade :0
-              },
-              {
-                id:1,
-                nome:'short',
-                img:'image.jpg',
-                quantidade: 0
-              },
-              {
-                id:2,
-                nome:'sapato',
-                img: 'img.jpg',
-                quantidade: 0
-              }
+  </head>
 
-            ]
+  <body>
 
-            InicializarLOja = () => {
-                var containerProdutos = document.getElementById('produtos')
-                itens.map (val)
-            }
-         </script>
+    <h2>Vitrine</h2>
 
-    </body>
+    <div id="produtos">
+    
+    </div><!--produtos-->
 
-<html>
+    <h2>Carrinho</h2>
+
+    <div id="carrinho">
+
+    </div><!--carrinho-->
+
+    <script>
+       const items = [
+        {
+          id: 0,
+          nome: 'camiseta',
+          img: 'image.jpg',
+          quantidade: 0
+          
+        },
+        {
+          id: 1,
+          nome:'short', 
+          img: 'image.jpg',
+          quantidade: 0
+        },
+        {
+          id: 2,
+          nome: 'sapato',
+          img: 'image.jpg',
+          quantidade: 0
+        },
+       ]
+
+
+       inicializarLoja = () => {
+        var containerProdutos = document.getElementById('produtos');
+        items.map((val)=>{
+          containerProdutos.innerHTML+= `
+
+          <div class="produtos-single">
+            <img src="`+val.img+`" />
+            <p>`+val.nome+`</p>
+            <a key="`+val.id+`" href="#"<Adicionar ao carrinho!</a> Adicionar ao carrinho!
+          </div>
+          
+
+         `;
+        })
+       }
+       inicializarLoja();
+
+       atualizarCarrinho = () => {
+
+        var containerCarrinho = document.getElementById('carrinho');
+        containerCarrinho.innerHTML = "";
+        items.map((val)=>{
+          if(val.quantidade > 0){}
+          containerCarrinho.innerHTML+= `
+
+          <p>`+val.nome+`  | quantidade: `+val.quantidade+` </p>
+          <hr>
+         `;
+        })
+        console.log(items);
+
+       }
+
+       var links = document.getElementsByTagName('a');
+
+       for(var i = 0; i < links.length; i++){
+        links[i].addEventListener("click",function(){
+          let key = this.getAttribute('key');
+          items[key].quantidade++;
+          atualizarCarrinho();
+          return false;
+
+
+        
+        })
+       }
+
+
+       
+    </script>
+
+
+
+
+
+
+  </body>
+
+     
+
+
+
+
+
+
+
+</html>
